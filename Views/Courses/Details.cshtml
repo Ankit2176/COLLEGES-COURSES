@@ -1,0 +1,127 @@
+﻿@model CollegeAndCourses.Models.Course
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel"> @Html.DisplayFor(model => model.Name) Course Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeDeatilModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <dl class="row">
+         <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.DurationOfCourse)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.DurationOfCourse)
+        </dd>
+   @*      <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.College)
+        </dt> *@
+    @*     <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.College.CollegeId)
+        </dd>
+ *@
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Publish)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Publish)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CoureseFor)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CoureseFor)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.PublicationAccrediet)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.PublicationAccrediet)
+        </dd>
+
+
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.FreeCourese)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.FreeCourese)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.BooksForCourse)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.BooksForCourse)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.BracodeOfBook)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.BracodeOfBook)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.AvailablesON)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.AvailablesONString)
+        </dd>
+
+
+
+    </dl>
+            </div>
+            <div class="modal-footer">
+            @*     <a asp-action="Edit" asp-route-id="@Model?.CourseId">Edit</a> |
+                <a asp-action="Index">Back to List</a> *@
+                <button class="closeDetailModal btn btn-danger" id="closeDeatilModal">Close</button>
+                @* <a asp-action="Index" asp-controller="Colleges" data-id="ViewBag.CollegeId" class="btn btn-danger closeCreateModal" id="Detail">Close</a> *@
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            debugger
+
+            $(document).on('click', '#closeDetailModal', function () {
+                $('#detailsModal').modal('hide');
+            });
+
+
+        });
+
+    </script>
+}

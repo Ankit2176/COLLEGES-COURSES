@@ -1,0 +1,333 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\controllers\\collegescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:controllers\\collegescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\_coursesindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\_coursesindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\colleges\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\colleges\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\colleges\\viewdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\colleges\\viewdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\shared\\_coursesindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\shared\\_coursesindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\editonmain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\editonmain.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\colleges\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\colleges\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\colleges\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\colleges\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\models\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:models\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\models\\courseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:models\\courseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|c:\\visual  studio\\pratise sets projects\\collegeandcourses\\views\\courses\\_details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{30012B19-B4A1-4137-BDA8-92327D36971E}|CollegeAndCourses.csproj|solutionrelative:views\\courses\\_details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:919652105:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1338056150:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_CoursesIndex.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Shared\\_CoursesIndex.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_CoursesIndex.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Shared\\_CoursesIndex.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_CoursesIndex.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T10:21:05.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\Index.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Index.cshtml",
+              "RelativeToolTip": "Views\\Courses\\Index.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T10:21:02.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PaginatedList.cs",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Models\\PaginatedList.cs",
+              "RelativeDocumentMoniker": "Models\\PaginatedList.cs",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Models\\PaginatedList.cs",
+              "RelativeToolTip": "Models\\PaginatedList.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T10:10:15.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CourseViewModel.cs",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Models\\CourseViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\CourseViewModel.cs",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Models\\CourseViewModel.cs",
+              "RelativeToolTip": "Models\\CourseViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T10:10:09.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\Details.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Details.cshtml",
+              "RelativeToolTip": "Views\\Courses\\Details.cshtml",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAAH4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T10:04:32.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\Delete.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Courses\\Delete.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T10:04:29.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_Details.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\_Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\_Details.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\_Details.cshtml",
+              "RelativeToolTip": "Views\\Courses\\_Details.cshtml",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T10:03:57.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Colleges\\Create.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Create.cshtml",
+              "RelativeToolTip": "Views\\Colleges\\Create.cshtml",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAAALsAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T06:45:23.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EditOnMain.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\EditOnMain.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\EditOnMain.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\EditOnMain.cshtml",
+              "RelativeToolTip": "Views\\Courses\\EditOnMain.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEYAAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-25T05:54:04.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CollegesController.cs",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Controllers\\CollegesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CollegesController.cs",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Controllers\\CollegesController.cs",
+              "RelativeToolTip": "Controllers\\CollegesController.cs",
+              "ViewState": "AQIAAFcBAAAAAAAAAAAYwGQBAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T12:58:43.415Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\Edit.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Courses\\Edit.cshtml",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEcAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:43:58.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CoursesController.cs",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "Controllers\\CoursesController.cs",
+              "ViewState": "AQIAAKYAAAAAAAAAAAAAwMMAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-24T12:33:35.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\Create.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\Create.cshtml",
+              "RelativeToolTip": "Views\\Courses\\Create.cshtml",
+              "ViewState": "AQIAAHYAAAAAAAAAAAAAAJIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:33:31.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Colleges\\Edit.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Colleges\\Edit.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAFMAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:32:10.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_CoursesIndex.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\_CoursesIndex.cshtml",
+              "RelativeDocumentMoniker": "Views\\Courses\\_CoursesIndex.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Courses\\_CoursesIndex.cshtml",
+              "RelativeToolTip": "Views\\Courses\\_CoursesIndex.cshtml",
+              "ViewState": "AQIAAIgAAAAAAAAAAAAAAJcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:32:15.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ViewDetails.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\ViewDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Colleges\\ViewDetails.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\ViewDetails.cshtml",
+              "RelativeToolTip": "Views\\Colleges\\ViewDetails.cshtml",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAAAEMAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:32:06.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Colleges\\Index.cshtml",
+              "ToolTip": "C:\\Visual  Studio\\Pratise Sets Projects\\CollegeAndCourses\\Views\\Colleges\\Index.cshtml",
+              "RelativeToolTip": "Views\\Colleges\\Index.cshtml",
+              "ViewState": "AQIAAMIBAAAAAAAAAAAAANABAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-24T12:28:17.267Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

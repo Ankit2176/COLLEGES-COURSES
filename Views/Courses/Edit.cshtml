@@ -1,0 +1,141 @@
+﻿
+
+                    @model CollegeAndCourses.Models.Course
+
+@* @{
+    ViewData["Title"] = "Edit";
+} *@
+
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                <h5 class="modal-title" id="detailsModalLabel">Edit Courses : @Html.DisplayFor(model => model.Name)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeEditModal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CourseId" />
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fees" class="control-label"></label>
+                <input asp-for="Fees" class="form-control" />
+                <span asp-validation-for="Fees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationOfCourse" class="control-label"></label>
+                <input asp-for="DurationOfCourse" class="form-control" />
+                <span asp-validation-for="DurationOfCourse" class="text-danger"></span>
+            </div>
+                    <div class="form-group">
+                @* <label asp-for="CollegeId" class="control-label"></label> *@
+                <select asp-for="CollegeId" class="form-control" asp-items="ViewBag.CollegeId" style="display:none"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Publish" class="control-label"></label>
+                <input asp-for="Publish" class="form-control" />
+                <span asp-validation-for="Publish" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CoureseFor" class="control-label">CoureseFor</label><br />
+
+                <div class="form-check form-check-inline">
+                    @Html.RadioButtonFor(model => model.CoureseFor, "Junior", new { @class = "form-check-input", id = "courseforJunior" })
+                    <label class="form-check-label" for="courseforJunior">Junior</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    @Html.RadioButtonFor(model => model.CoureseFor, "Senior", new { @class = "form-check-input", id = "courseforSenior" })
+                    <label class="form-check-label" for="courseforSenior">Senior</label>
+                </div>
+
+                <span asp-validation-for="CoureseFor" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PublicationAccrediet" /> @Html.DisplayNameFor(model => model.PublicationAccrediet)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" asp-for="FreeCourese" /> @Html.DisplayNameFor(model => model.FreeCourese)
+                    </div>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BooksForCourse" class="control-label"></label>
+                <select asp-for="BooksForCourse" class="form-control">
+                    <option value="">----Select----</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermidiet">Intermidiet</option>
+
+                    <option value="Advanced">Advanced</option>
+
+                    <option value="Pro">Pro </option>
+                </select>
+                <span asp-validation-for="BooksForCourse" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="BracodeOfBook" class="control-label"></label>
+                <input asp-for="BracodeOfBook" class="form-control" />
+                <span asp-validation-for="BracodeOfBook" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvailablesON" class="control-label"></label>
+                <select asp-for="AvailablesON" class="form-control" multiple>
+                    <option value="">----Select----</option>
+                    <option value="A">Amazone</option>
+                    <option value="F">Flipcart</option>
+                    <option value="M">Meesho</option>
+                    <option value="S">Shopify </option>
+                    <option value="A">Ajio </option>
+                    <option value="SnaP">Snapdeal</option>
+                    <option value="I">India Mart</option>
+                    <option value="W">Wolmart </option>
+                </select>
+                <span asp-validation-for="AvailablesON" class="text-danger"></span>
+            </div>
+           
+                 <div class="modal-footer form-group">
+
+                        <input type="submit" value="Save" class="btn btn-primary btn-info" />
+                        
+                        <button type="button" class="btn btn-danger" id="closeEditModal">Close</button>
+
+                        @* <a asp-action="Index" asp-controller="Colleges" data-id="ViewBag.CollegeId" class="btn btn-danger closeCreateModal">Close</a> *@
+                    </div>
+        </form>
+
+            
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

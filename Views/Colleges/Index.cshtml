@@ -1,0 +1,503 @@
+﻿@model PaginatedList<College>
+@{
+    ViewData["Title"] = "Index";
+    int currentPageSize = ViewData["CurrentPageSize"] != null ? (int)ViewData["CurrentPageSize"] : 10;
+}
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h1>Colleges Info</h1>
+        <a asp-action="Create" style="color:white" class="btn btn-primary">Create New</a>
+    </div>
+    <div id="modalPlaceholder1"></div>
+
+    <div class="card-body">
+        <form method="get" asp-action="Index" class="d-flex justify-content-end">
+            <div class="input-group">
+                <input type="text" class="form-control" name="searchString" placeholder="Search by name" value="@ViewData["CurrentFilter"]" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+            <div>
+                <form asp-action="Index" method="get" id="pageSizeForm">
+                    <label for="pageSize">Items per page:</label>
+                    <select id="pageSize" name="pageSize" onchange="this.form.submit()">
+                        <option value="2" selected=@(ViewData["PageSize"].ToString() == "2" ? true : false)>2</option>
+                        <option value="10" selected=@(ViewData["PageSize"].ToString() == "10" ? true : false)>10</option>
+                        <option value="25" selected=@(ViewData["PageSize"].ToString() == "25" ? true : false)>25</option>
+                        <option value="50" selected=@(ViewData["PageSize"].ToString() == "50" ? true : false)>50</option>
+                    </select>
+                </form>
+            </div>
+           @*  <div class="input-group">
+                <input type="text" class="form-control" name="pageSize" placeholder="Page Si ze" value="@currentPageSize" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Set</button>
+                </div>
+            </div> *@
+        </form>
+        <div class="mb-3">
+            <p>Total Records: @ViewData["TotalRecords"]</p>
+        </div>
+        <table class="table table-striped" id="MyMain">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Name</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["GradeSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Grade</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Address</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Date</a>
+                    </th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().PreferredContactMethod)</th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().IsNAACAccrediet)</th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().RecevieNewsLetter)</th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().HowManyStudents)</th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().PhoneNo)</th>
+               
+                    <th>@Html.DisplayNameFor(model => model.Items.First().Branches)</th>
+                    <th></th>
+                
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Grade)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                        <td>@Html.DisplayFor(modelItem => item.dateTime)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PreferredContactMethod)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IsNAACAccrediet)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RecevieNewsLetter)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HowManyStudents)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNo)</td>
+                        
+                        <td>@Html.DisplayFor(modelItem => item.BranchesString)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CollegeId" class="btn btn-success">Edit</a> 
+                            <a asp-action="ViewDetails" asp-route-id="@item.CollegeId" id="openCourses" class="btn btn-info">View</a>
+                            <button data-college-id="@item.CollegeId" type="button" class="btn btn-primary" id="openCreateModal">
+                                Add
+                            </button> 
+                            <a asp-action="Index" asp-controller="Courses" data-id="@item.CollegeId" class="CourseView btn btn-secondary">View Courses</a> |
+                            <a class="letsDelete btn btn-danger" data-id="@item.CollegeId" data-name="@item.Name">Delete</a>
+
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+
+                    <tbody class="details-row" id="details-@item.CollegeId" style="display: none; background-color:azure;">
+                       
+                       <td  class="card-body">
+                       
+                            <!-- Details will be dynamically loaded here -->
+                        </td>
+                    </tbody>
+                }
+            </tbody>
+        </table>
+
+      @*   <div class="d-flex flex-row justify-content-between">
+            <div>
+                <a asp-action="Index" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-outline-primary @(!Model.HasPreviousPage ? "disabled" : "")">Previous</a>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@i" asp-route-pageSize="@ViewData["PageSize"]">@i</a>
+                    </li>
+                }<span>....</span>
+                <a asp-action="Index" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-outline-primary @(!Model.HasNextPage ? "disabled" : "")">Next</a>
+
+            </div>
+
+                <div> 
+            <span>Page @Model.PageIndex of @Model.TotalPages</span>  *@
+        <div class="d-flex flex-row justify-content-between">
+            <div>
+                <a asp-action="Index"
+                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-pageSize="@ViewData["PageSize"]"
+                   class="btn btn-outline-primary @(!Model.HasPreviousPage ? "disabled" : "")">
+                    Previous
+                </a>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                        <a class="page-link"
+                           asp-action="Index"
+                           asp-route-pageNumber="@i"
+                           asp-route-pageSize="@ViewData["PageSize"]">
+                            @i
+                        </a>
+                    </li>
+                }
+                <span>....</span>
+                <a asp-action="Index"
+                   asp-route-searchString="@ViewData["CurrentFilter"]"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-pageSize="@ViewData["PageSize"]"
+                   class="btn btn-outline-primary @(!Model.HasNextPage ? "disabled" : "")">
+                    Next
+                </a>
+            </div>
+
+            <div>
+                <span>Page @Model.PageIndex of @Model.TotalPages</span>
+            </div>
+        </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="modalPlaceholder"></div>
+
+
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js" integrity="sha512-oVbWSv2O4y1UzvExJMHaHcaib4wsBMS5tEP3/YkMP6GmkwRJAa79Jwsv+Y/w7w2Vb/98/Xhvck10LyJweB8Jsw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.js" integrity="sha512-kwtW9vT4XIHyDa+WPb1m64Gpe1jCeLQLorYW1tzT5OL2l/5Q7N0hBib/UNH+HFVjWgGzEIfLJt0d8sZTNZYY6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+           
+
+
+       
+             // toggle course index
+            $('.CourseView').click(function (e) {
+                e.preventDefault();
+                var collegeId = $(this).data('id');
+                var detailsRow = $('#details-' + collegeId);
+
+                // Toggle visibility of details row
+                if (detailsRow.is(':visible')) {
+                    detailsRow.hide();
+                } else {
+                    // Load details via AJAX
+                    $.get('@Url.Action("ViewIndex", "Courses")', { collegeId: collegeId }, function (data) {
+                        // Log the returned data to check the HTML structure
+                        console.log(data);
+                        detailsRow.html(data).fadeToggle(1000);
+                    }).fail(function () {
+                        // Handle errors
+                        alert("Error loading data.");
+                    });
+                }
+            });
+
+            // create course [
+            $(document).on('click', '#openCreateModal', function () {
+                // Load the Create.cshtml modal content via AJAX
+                var collegeId = $(this).data('college-id');
+                debugger
+                $.ajax({
+                    url: '@Url.Action("Create", "Courses")',
+                    type: 'GET',
+                    data: { collegeId: collegeId },
+                    success: function (data) {
+                        $('#modalPlaceholder').html(data);
+                        $('#createModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load create student modal.');
+                    }
+                });
+            });
+
+
+            $(document).on('click', '#closeCreateModal', function () {
+                $('#createModal').modal('hide');
+            });
+         
+
+            // $(document).on('click', '#closeEditModal', function () {
+            //     $('#editModal').style.display = "none";
+            // });
+
+
+
+
+            $(document).on("click", ".Detail-button", function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    url: '@Url.Action("Details", "Courses")/' + id,
+                    type: 'GET',
+                    data: { id: id },
+                    success: function (data) {
+                        $("#modalPlaceholder").html(data);
+                        $("#detailsModal").modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load edit courese modal.');
+                    }
+                });
+              
+                $(document).on('click', '#closeDeatilModal', function () {
+                    $('#detailsModal').modal('hide');
+                });
+
+            });
+
+
+            $(document).on("click", ".edit-button", function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    url: '@Url.Action("Edit", "Courses")/' + id,
+                    type: 'GET',
+                    data: { id: id },
+                    success: function (data) {
+                        $("#modalPlaceholder").html(data);
+                        $("#editModal").modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load edit courese modal.');
+                    }
+                });
+                debugger
+                $(document).on('click', '#closeEditModal', function () {
+                    $('#editModal').modal('hide');
+                });
+
+            
+            });
+
+            $(document).on("click", ".edit1-button", function () {
+                var id = $(this).data("id");
+                $.ajax({
+                    url: '@Url.Action("EditOnMain", "Courses")/' + id,
+                    type: 'GET',
+                    data: { id: id },
+                    success: function (data) {
+                        // $("#modalPlaceholder").alert('hello');
+
+                        $("#modalPlaceholder").html(data);
+                        $("#editModalMain").modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load edit courese modal.');
+                    }
+                });
+                
+                $(document).on('click', '#closeEditMainModal', function () {
+                    $('#editModalMain').modal('hide');
+                });
+
+
+            });
+            debugger
+            $('#editModalMain').submit(function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                $.ajax({
+                    url: '/colleges/Index',
+                    type: 'POST',
+                    data: $(this).serialize(), // Serialize the form data
+                    success: function (response) {
+                        // Handle the response from the server
+                        console.log(response);
+
+                        // Close the modal
+                        $('#editModalMain').modal('hide');
+
+                        // Optionally display a success message or perform any other actions
+                        alert('Form submitted successfully!');
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle any errors that occurred during the request
+                        console.error("AJAX Error: ", status, error);
+                        alert('An error occurred while submitting the form.');
+                    }
+                });
+            });
+
+            $.ajaxSetup({
+                headers: {
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                }
+            });
+
+            $('.letsDelete').click(function () {
+                var collegeId = $(this).data('id');
+                var collegeName = $(this).data('name');
+
+                var collegeRow = $(this).closest('tr');
+                bootbox.confirm({
+                    message: "Are you sure you want to delete this college : " + collegeName,
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: '/Colleges/DeleteConfirmed/' + collegeId,
+                                type: 'POST',
+                                data: {
+                                    id: collegeId
+                                },
+                                success: function (result) {
+                                    if (result.success) {
+                                        collegeRow.remove();
+                                        bootbox.alert('data deleted SuccesFully')
+                                    } else {
+                                        alert('Failed to delete college. Please try again.');
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    console.error('Error:', status, error);
+                                    alert('Failed to delete college. Please try again.');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+
+
+            $(document).on("click", ".CourseDelete", function () {
+                var courseId = $(this).data('id');
+                //var  courseName= $(this).data('name');
+
+                var courseRow = $(this).closest('tr');
+                bootbox.confirm({
+                    message: "Are you sure you want to delete this course : " /* + courseName */,
+                    buttons: {
+                        confirm: {
+                            label: 'Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            $.ajax({
+                                url: '/Courses/DeleteData/' + courseId,
+                                type: 'POST',
+                                data: {
+                                    id: courseId
+                                },
+                                success: function (result) {
+                                    if (result.success) {
+                                        courseRow.remove();
+                                        bootbox.alert('data deleted SuccesFully')
+                                    } else {
+                                        alert('Failed to delete college. Please try again.');
+                                    }
+                                },
+                                error: function (xhr, status, error) {
+                                    console.error('Error:', status, error);
+                                    alert('Failed to delete college. Please try again.');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+          
+                // function sortTable(table, columnIndex) {
+                //     var asc = table.data('asc');
+                //     var rows = table.find('tbody tr').get();
+
+                //     rows.sort(function (a, b) {
+                //         var cellA = $(a).children('td').eq(columnIndex).text().toUpperCase();
+                //         var cellB = $(b).children('td').eq(columnIndex).text().toUpperCase();
+
+                //         if (asc) {
+                //             if (cellA < cellB) return -1;
+                //             if (cellA > cellB) return 1;
+                //         } else {
+                //             if (cellA > cellB) return -1;
+                //             if (cellA < cellB) return 1;
+                //         }
+                //         return 0;
+                //     });
+
+                //     table.data('asc', !asc);
+
+                //     $.each(rows, function (index, row) {
+                //         table.find('tbody').append(row);
+                //     });
+                // }
+
+                // // Click event handler for sorting based on data-target
+                // $(document).on('click', 'th[data-target]', function () {
+                //     var tableId = $(this).data('target');
+                //     var table = $(tableId);
+                //     var columnIndex = $(this).index();
+                //     sortTable(table, columnIndex);
+                // });
+                debugger
+            $('table th').on('click', function () {
+                var table = $(this).closest('table');
+                var columnIndex = $(this).index();
+                sortTable(table, columnIndex);
+            });
+
+            function sortTable(table, columnIndex) {
+                var asc = table.data('asc') || true; // Default to ascending if not set
+                var rows = table.find('tbody tr').get();
+
+                rows.sort(function (a, b) {
+                    var cellA = $(a).children('td').eq(columnIndex).text().toUpperCase();
+                    var cellB = $(b).children('td').eq(columnIndex).text().toUpperCase();
+
+                    if (asc) {
+                        if (cellA < cellB) return -1;
+                        if (cellA > cellB) return 1;
+                    } else {
+                        if (cellA > cellB) return -1;
+                        if (cellA < cellB) return 1;
+                    }
+                    return 0;
+                });
+
+                // Toggle asc/desc for next click
+                table.data('asc', !asc);
+                 
+                // Reappend sorted rows to tbody
+                $.each(rows, function (index, row) {
+                    table.children('tbody').append(row);
+                });
+            }
+
+        });
+
+
+
+    </script>
+}

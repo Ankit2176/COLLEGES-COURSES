@@ -1,0 +1,305 @@
+﻿@* @model CollegeAndCourses.Models.College
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>College</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label"></label>
+                <input asp-for="Grade" class="form-control" />
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <textarea asp-for="Address" class="form-control" placeholder="Ex.- 1201,B,Panchdhara,near Nexus Mall"  > </textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateTime" class="control-label"></label>
+                <input asp-for="dateTime" class="form-control" />
+                <span asp-validation-for="dateTime" class="text-danger"></span>
+            </div>
+          
+
+            <div class="form-group">
+                <label asp-for="PreferredContactMethod" class="control-label">Preferred Contact Method</label><br />
+
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.PreferredContactMethod, "Email", new { @class = "form-check-input", id = "contactEmail" })
+                    <label class="form-check-label" for="contactEmail">Email</label>
+                </div>
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.PreferredContactMethod, "Phone", new { @class = "form-check-input", id = "contactPhone" })
+                    <label class="form-check-label" for="contactPhone">Phone</label>
+                </div>
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.PreferredContactMethod, "Mail", new { @class = "form-check-input", id = "contactMail" })
+                    <label class="form-check-label" for="contactMail">Mail</label>
+                </div>
+
+                <span asp-validation-for="PreferredContactMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsNAACAccrediet" /> @Html.DisplayNameFor(model => model.IsNAACAccrediet)
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" asp-for="RecevieNewsLetter" /> @Html.DisplayNameFor(model => model.RecevieNewsLetter)
+                    </div>
+                </label>
+            </div>
+
+
+           
+            <div class="form-group">
+                <label asp-for="HowManyStudents" class="control-label"></label>
+                <select asp-for="HowManyStudents" class="form-control">
+                    <option value="">----Select Range----</option>
+                    <option value="500">0-500 </option>
+                    <option value="1000">500-1000</option>
+
+                    <option value="1500">1000-1500</option>
+
+                    <option value="5000">1500-5000 </option>
+                </select>
+                <span asp-validation-for="HowManyStudents" class="text-danger"></span>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label asp-for="PhoneNo" class="control-label"></label>
+                <input asp-for="PhoneNo" class="form-control" />
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@
+
+
+
+@{
+    // Retrieve the current date from ViewData
+    var currentDate = (DateTime)ViewData["CurrentDate"];
+}
+
+@model CollegeAndCourses.Models.ViewModels.CollegesAndCoursesViewModel
+@* @{
+    ViewData["Title"] = "Create";
+}
+ *@
+<h1>Create</h1>
+
+
+<div class="d-flex justify-content-between">
+    <h4>College</h4>
+    <a asp-action="Index" class="btn btn-danger">Back</a>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 card border-1 ">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="College.Name" class="control-label"></label>
+                <input asp-for="College.Name" class="form-control" />
+                <span asp-validation-for="College.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="College.Grade" class="control-label"></label>
+                <input asp-for="College.Grade" class="form-control" />
+                <span asp-validation-for="College.Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="College.Address" class="control-label"></label>
+                <textarea asp-for="College.Address" class="form-control" placeholder="Ex.- 1201,B,Panchdhara,near Nexus Mall"> </textarea>
+                <span asp-validation-for="College.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="College.dateTime" class="control-label"></label>
+                @* <input asp-for="College.dateTime" class="form-control"  /> *@
+                <input asp-for="College.dateTime" type="date" class="form-control" value="@currentDate.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="College.dateTime" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="College.PreferredContactMethod" class="control-label">Preferred Contact Method</label><br />
+
+                <div class="form-check form-check-inline">
+                    @Html.RadioButtonFor(model => model.College.PreferredContactMethod, "Email", new { @class = "form-check-input", id = "contactEmail" })
+                    <label class="form-check-label" for="contactEmail">Email</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    @Html.RadioButtonFor(model => model.College.PreferredContactMethod, "Phone", new { @class = "form-check-input", id = "contactPhone" })
+                    <label class="form-check-label" for="contactPhone">Phone</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    @Html.RadioButtonFor(model => model.College.PreferredContactMethod, "Mail", new { @class = "form-check-input", id = "contactMail" })
+                    <label class="form-check-label" for="contactMail">Mail</label>
+                </div>
+
+                <span asp-validation-for="College.PreferredContactMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="College.IsNAACAccrediet" /> @Html.DisplayNameFor(model => model.College.IsNAACAccrediet)
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" asp-for="College.RecevieNewsLetter" /> @Html.DisplayNameFor(model => model.College.RecevieNewsLetter)
+                    </div>
+                </label>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="College.HowManyStudents" class="control-label"></label>
+                <select asp-for="College.HowManyStudents" class="form-control">
+                    <option value="">----Select Range----</option>
+                    <option value="500">0-500 </option>
+                    <option value="1000">500-1000</option>
+
+                    <option value="1500">1000-1500</option>
+
+                    <option value="5000">1500-5000 </option>
+                </select>
+                <span asp-validation-for="College.HowManyStudents" class="text-danger"></span>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label asp-for="College.PhoneNo" class="control-label"></label>
+                <input asp-for="College.PhoneNo" class="form-control" />
+                <span asp-validation-for="College.PhoneNo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="College.Branches" class="control-label"></label>
+                <select asp-for="College.Branches" class="form-control" multiple>
+                    <option value="">----Select----</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+
+                    <option value="Electrical">Electrical</option>
+
+                    <option value="Mining">Mining </option>
+                    <option value="Machin Learning">Machin Learning</option>
+
+                    <option value="Computer Science">Computer Science </option>
+
+                    <option value="Electronics">Electronics </option>
+                    <option value="Rocket Science">Rocket Science</option>
+                    <option value="Chemical Science">Chemical Science </option>
+
+
+
+                </select>
+                <span asp-validation-for="College.Branches" class="text-danger"></span>
+
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger">Close</a>
+            </div>
+            <div>
+               
+            </div>
+        </form>
+    </div>
+</div>
+<div class="card-footer d-flex justify-content-end align-items-center">
+    <button type="button" class="btn btn-primary" id="openCreateModal">
+        Add
+    </button>
+</div>
+
+<div id="modalPlaceholder"></div>
+
+
+<div>
+    @Html.Partial("_CoursesIndex", Model.Courses)
+</div>
+
+
+
+
+@section Scripts {
+      @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Show modal when clicking Create New button
+            $('#openCreateModal').click(function () {
+                // Load the Create.cshtml modal content via AJAX
+                $.ajax({
+                    url: '@Url.Action("Create", "Courses")',
+                    type: 'GET',
+                    success: function (data) {
+                        debugger;
+                        $('#modalPlaceholder').html(data);
+                        $('#createModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load create student modal.');
+                    }
+                });
+            });
+
+            $(document).on('click', '#closeCreateModal', function () {
+                $('#createModal').modal('hide');
+            });
+
+          
+        });
+
+    </script>
+}
+<div id="modalPlaceholder"></div>
+
+

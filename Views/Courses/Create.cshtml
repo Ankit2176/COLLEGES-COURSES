@@ -1,0 +1,272 @@
+﻿
+
+@* @{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Course</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fees" class="control-label"></label>
+                <input asp-for="Fees" class="form-control" />
+                <span asp-validation-for="Fees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DurationOfCourse" class="control-label"></label>
+                <input asp-for="DurationOfCourse" class="form-control" />
+                <span asp-validation-for="DurationOfCourse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollegeId" class="control-label"></label>
+                <select asp-for="CollegeId" class ="form-control" asp-items="ViewBag.CollegeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@
+
+@{
+    // Retrieve the current date from ViewData
+    var currentDate = (DateTime)ViewData["CurrentDate"];
+}
+
+<!-- Render a date input field pre-filled with the current date -->
+
+
+       
+
+
+
+
+
+ @model CollegeAndCourses.Models.Course
+<!-- Check if ViewBag.CollegeId is null and add a script to show an alert -->
+@if (ViewBag.CollegeId == null)
+{
+    <script type="text/javascript">
+       {
+            alert("You cannot create courses without a college ID. Please select a college first.");
+        };
+    </script>
+}
+ 
+<!-- Modal for Create -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            
+            <form asp-action="Create" id="createForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createModalLabel">Add Courses</h5>
+                    <button type="button" id="closeCreateModal" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Fees" class="control-label"></label>
+                        <input asp-for="Fees" class="form-control" />
+                        <span asp-validation-for="Fees" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DurationOfCourse" class="control-label"></label>
+                        <input asp-for="DurationOfCourse" class="form-control" />
+                        <span asp-validation-for="DurationOfCourse" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+    @* <label asp-for="CollegeId" class="control-label"></label> *@
+    <select asp-for="CollegeId" class="form-control" asp-items="@ViewBag.CollegeId" style="display:none;"></select>
+</div>
+
+        
+
+                    <div class="form-group">
+                        <label asp-for="Publish" class="control-label"></label>
+                     <input  asp-for="Publish" type="date" class="form-control" value="@currentDate.ToString("yyyy-MM-dd")" />
+
+                        <span asp-validation-for="Publish" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="CoureseFor" class="control-label">CoureseFor</label><br />
+
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.CoureseFor, "Junior", new { @class = "form-check-input", id = "courseforJunior" })
+                            <label class="form-check-label" for="courseforJunior">Junior</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            @Html.RadioButtonFor(model => model.CoureseFor, "Senior", new { @class = "form-check-input", id = "courseforSenior" })
+                            <label class="form-check-label" for="courseforSenior">Senior</label>
+                        </div>
+                   
+                        <span asp-validation-for="CoureseFor" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="PublicationAccrediet" /> @Html.DisplayNameFor(model => model.PublicationAccrediet)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" asp-for="FreeCourese" /> @Html.DisplayNameFor(model => model.FreeCourese)
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="BooksForCourse" class="control-label"></label>
+                        <select asp-for="BooksForCourse" class="form-control">
+                            <option value="">----Select----</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermidiet">Intermidiet</option>
+
+                            <option value="Advanced">Advanced</option>
+
+                            <option value="Pro">Pro </option>
+                        </select>
+                        <span asp-validation-for="BooksForCourse" class="text-danger"></span>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="BracodeOfBook" class="control-label"></label>
+                        <input asp-for="BracodeOfBook" class="form-control" />
+                        <span asp-validation-for="BracodeOfBook" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AvailablesON" class="control-label"></label>
+                        <select asp-for="AvailablesON" class="form-control" multiple>
+                            <option value="">----Select----</option>
+                            <option value="Amazone">Amazone</option>
+                            <option value="Flipcart">Flipcart</option>
+                            <option value="Meesho">Meesho</option>
+                            <option value="Shopify">Shopify </option>
+                            <option value="Ajio">Ajio </option>
+                            <option value="Snapdeal">Snapdeal</option>
+                            <option value="India Mart">India Mart</option>
+                            <option value="Wolmart ">Wolmart </option>
+                        </select>
+                        <span asp-validation-for="AvailablesON" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closeCreateModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="submit">Create</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+ <!-- Button to trigger modal -->
+@* <button type="button" class="btn btn-primary" id="openCreateModal">
+    Create New Student
+</button>  *@
+
+@section Scripts {
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Show modal when clicking Create New button
+            $('#submit').click(function () {
+                // Load the Create.cshtml modal content via AJAX
+                $.ajax({
+                    url: '@Url.Action("ViewDetails", "Colleges")',
+                    type: 'GET',
+                    success: function (data) {
+                        // If you want to redirect after successful load
+                        window.location.href = '@Url.Action("ViewDetails", "Colleges")'; // Replace with your desired URL
+                    },
+                    error: function () {
+                        alert('Failed to load create student modal.');
+                    }
+                });
+            });
+
+            $(document).on('click', '#closeCreateModal', function () {
+                $('#createModal').modal('hide');
+            });
+
+            var collegeId = '@ViewBag.CollegeId';
+            var url = '@Url.Action("ViewDetails", "Colleges", new { id = "" })' + collegeId;
+
+            // $('#btncancel').click(function () {
+            //     window.location.href = url;
+            // });
+            // $('#closeCreateModal').click(function () {
+            //     // Perform any necessary AJAX operations before redirecting
+            //     $.ajax({
+            //         url: '@Url.Action("ViewDetails", "Colleges")', */ // Replace with the appropriate action if needed
+            //         type: 'GET', // or 'POST' if necessary
+            //         success: function (data) {
+            //             // Redirect after successful AJAX call
+            //             window.location.href = '@Url.Action("ViewDetails", "Colleges")';
+            //         },
+            //         error: function () {
+            //             alert('Failed to perform close operation.');
+            //         }
+            //     });
+            // });
+        // $('#closeCreateModal').click(function () {
+        //     // Load the Create.cshtml modal content via AJAX
+        //     $.ajax({
+        //         url: '@Url.Action("ViewDetails", "Colleges")',
+        //         type: 'GET',
+        //         success: function (data) {
+        //             debugger;
+        //             $('#modalPlaceholder').html(data);
+        //             $('#createModal').modal('hide');
+        //         },
+        //         error: function () {
+        //             alert('Failed to load create student modal.');
+        //         }
+        //     });
+
+        });
+
+       
+    </script> 
+
+    
+    }
+

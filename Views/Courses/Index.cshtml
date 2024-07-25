@@ -1,0 +1,98 @@
+﻿@model IEnumerable<CollegeAndCourses.Models.Course>
+@* 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+ *@
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+<table class="table" id="MyCourse">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fees)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationOfCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.College)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoureseFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationAccrediet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeCourese)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BooksForCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BracodeOfBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailablesON)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <br />
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DurationOfCourse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.College.CollegeId)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publish)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoureseFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationAccrediet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreeCourese)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BooksForCourse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BracodeOfBook)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailablesON)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,210 @@
+﻿@model IEnumerable<CollegeAndCourses.Models.Course>
+
+
+<table class="table" id="_CourseIndexModal">
+    <thead>
+        <tr>
+              <th>
+                @* @Html.DisplayNameFor(model => model.Name) *@
+                <a href="#" class="sort" data-sort-by="Name">Name</a>
+            </th>
+            <th>
+                <a href="#" class="sort" data-sort-by="Fees">Fees</a>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DurationOfCourse)
+            </th>
+            <th style="display:none;">
+                @Html.DisplayNameFor(model => model.College)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoureseFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublicationAccrediet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeCourese)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BooksForCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BracodeOfBook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailablesON)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tblbody">
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fees)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DurationOfCourse)
+                </td>
+                <td style="display:none;">
+                    @Html.DisplayFor(modelItem => item.College.CollegeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publish)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoureseFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublicationAccrediet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreeCourese)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BooksForCourse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BracodeOfBook)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvailablesONString)
+                </td>
+            <td>
+ 
+                    <button class="btn btn-success edit-button" data-id="@item.CourseId">Edit</button>|
+                    <button class="btn btn-primary Detail-button" data-id="@item.CourseId">Details</button>
+                    
+                    <button type="button" class="btn btn-danger CourseDelete" data-id="@item.CourseId">
+                        Delete
+                    </button>
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+
+</table>
+
+
+
+@* <div id="id="_CourseIndexModal"">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Fees</th>
+            <th>Duration</th>
+            <th>College</th>
+            <th>Publish</th>
+            <th>Course For</th>
+            <th>Publication Accrediet</th>
+            <th>Free Course</th>
+            <th>Books For Course</th>
+            <th>Barcode</th>
+            <th>Available ON</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fees)</td>
+                <td>@Html.DisplayFor(modelItem => item.DurationOfCourse)</td>
+                <td>@Html.DisplayFor(modelItem => item.College.CollegeId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Publish)</td>
+                <td>@Html.DisplayFor(modelItem => item.CoureseFor)</td>
+                <td>@Html.DisplayFor(modelItem => item.PublicationAccrediet)</td>
+                <td>@Html.DisplayFor(modelItem => item.FreeCourese)</td>
+                <td>@Html.DisplayFor(modelItem => item.BooksForCourse)</td>
+                <td>@Html.DisplayFor(modelItem => item.BracodeOfBook)</td>
+                <td>@Html.DisplayFor(modelItem => item.AvailablesON)</td>
+                <td>
+                    <button class="btn btn-success edit-button" data-id="@item.CourseId">Edit</button> |
+                    <button class="btn btn-primary Detail-button" data-id="@item.CourseId">Details</button> |
+                    <button type="button" class="btn btn-danger CourseDelete" data-toggle="modal" data-target="#deleteModal" data-id="@item.CourseId">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Pagination controls -->
+<ul class="pagination">
+    @if (Model.TotalPages > 1)
+    {
+        for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                <a class="page-link" href="#" data-page="@i">@i</a>
+            </li>
+        }
+    }
+</ul>
+</div>  *@
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
+
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        // Show modal when clicking Create New button
+        $('#openCreateModal').click(function () {
+            // Load the Create.cshtml modal content via AJAX
+            $.ajax({
+                url: '@Url.Action("Create", "Courses")',
+                type: 'GET',
+                success: function (data) {
+                    debugger;
+                    $('#modalPlaceholder').html(data);
+                    $('#createModal').modal('show');
+                },
+                error: function () {
+                    alert('Failed to load create student modal.');
+                }
+            });
+        });
+
+
+            $(document).on('click', '.editButton', function () {
+                var id = $(this).data('id'); // Get the ID from data attribute
+                // Load the Edit.cshtml modal content via AJAX
+                $.ajax({
+                    url: '@Url.Action("Edit", "Courses")',
+                    type: 'GET',
+                    data: { id: id },
+                    success: function (data) {
+                        $('#modalPlaceholder').html(data);
+                        $('#editModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Failed to load edit student modal.');
+                    }
+                });
+            });
+
+
+        // $('#_CourseIndexModal').dataTable();
+    });
+
+   
+</script>
+}
+<div id="modalPlaceholder"> </div>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
