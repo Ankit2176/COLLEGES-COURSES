@@ -176,7 +176,7 @@ namespace CollegeAndCourses.Controllers
                 if (college.Branches != null)
                 {
                     // Convert the list of branches to a semicolon-separated string
-                    college.BranchesString = string.Join("; ", college.Branches);
+                        college.BranchesString = string.Join("; ", college.Branches);
                 }
 
                 string courseJson = TempData["NewCourse"] as string;
@@ -184,10 +184,12 @@ namespace CollegeAndCourses.Controllers
                 // Deserialize the JSON string back to Course object
 
 
-                if (courseJson == " ")
+                //if (courseJson == " ")
+                if (courseJson==null || courseJson == " ")
+
                 {
-                    // Save the student to get the StudentId
-                    _context.Colleges.Add(college);
+                        // Save the student to get the StudentId
+                        _context.Colleges.Add(college);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
@@ -203,6 +205,7 @@ namespace CollegeAndCourses.Controllers
                     // Save the course to the database
                     _context.Courses.Add(newCourse);
                     _context.SaveChanges();
+                    TempData["NewCourse"] = " ";
 
                     // Redirect to Index or another appropriate action
                     return RedirectToAction(nameof(Index));
@@ -286,8 +289,9 @@ namespace CollegeAndCourses.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-                }
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Edit", "Colleges", new { id = college.CollegeId });
+            }
                 //var viewModel = new CollegesAndCoursesViewModel
                 //{
                 //    College = college,
