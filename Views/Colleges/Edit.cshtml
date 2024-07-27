@@ -131,7 +131,9 @@
    
 </div>
 <div class="card-footer d-flex justify-content-end align-items-center">
-    <button type="button" class="btn btn-primary" id="openCreateModal">
+
+    
+    <button type="button" class="btn btn-primary" id="openCreateModal" data-college-id="@Html.DisplayFor(model => model.College.CollegeId)">
         Add
     </button>
 </div>
@@ -153,12 +155,13 @@
         $(document).ready(function () {
             // Create New button
             $('#openCreateModal').click(function () {
-                // Load the Create.cshtml modal content via AJAX
+                var collegeId = $(this).data('college-id');
                 $.ajax({
                     url: '@Url.Action("Create", "Courses")',
                     type: 'GET',
+                    data: { collegeId: collegeId },
                     success: function (data) {
-                        debugger;
+                    
                         $('#modalPlaceholder').html(data);
                         $('#createModal').modal('show');
                     },
@@ -193,7 +196,7 @@
             });
 
             // for delete
-            debugger
+            
 
             $(document).on("click", ".CourseDelete", function () {
                 var id = $(this).data("id");

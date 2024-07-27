@@ -104,7 +104,7 @@ namespace CollegeAndCourses.Controllers
             //ViewData["CollegeId"] = new SelectList(colleges, "CollegeId", "Name", collegeId);
 
 
-            var currentDate = DateTime.Now;
+                  var currentDate = DateTime.Now;
 
             // Pass the current date to the view using ViewData
             ViewData["CurrentDate"] = currentDate;
@@ -115,7 +115,7 @@ namespace CollegeAndCourses.Controllers
             if (collegeId == null)
             {
                 ViewData["CollegeId"] = collegeId;
-                return PartialView();
+                return PartialView();   
             }
             else
             {
@@ -162,35 +162,39 @@ namespace CollegeAndCourses.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CourseId,Name,Fees,DurationOfCourse,CollegeId,Publish,CoureseFor,PublicationAccrediet,FreeCourese,BooksForCourse,BracodeOfBook,AvailablesON")] Course course)
-        {
+                         {
             if (ModelState.IsValid)
             {
 
 
 
-                 if (course.AvailablesON != null)
+                
+                if (course.AvailablesON != null)
                 {
-                    // Convert the list of branches to a semicolon-separated string
                     course.AvailablesONString = string.Join(", ", course.AvailablesON);
                 }
 
-
-
+            
 
                 if (course.CollegeId == 0 || course.CollegeId == null)
                 {
-                    string courseJson = JsonConvert.SerializeObject(course);
-                    TempData["NewCourse"] = courseJson;
+                    // Retrieve the list of courses from TempData
+                    var coursesJson = TempData["NewCourses"] as string;
+                    List<Course> courses = string.IsNullOrEmpty(coursesJson) ? new List<Course>() : JsonConvert.DeserializeObject<List<Course>>(coursesJson);
+
+                    // Add the current course to the list
+                    courses.Add(course);
+
+                    // Store the updated list back in TempData
+                    TempData["NewCourses"] = JsonConvert.SerializeObject(courses);
+
                     return RedirectToAction("Create", "Colleges");
                 }
-
                 else
                 {
                     _context.Add(course);
-
                     await _context.SaveChangesAsync();
 
-                    // Determine the current URL
                     var currentUrl = Request.Headers["Referer"].ToString().ToLower();
 
                     if (currentUrl.Contains("/colleges/edit/"))
@@ -205,10 +209,8 @@ namespace CollegeAndCourses.Controllers
                     {
                         return RedirectToAction("Create", "Colleges");
                     }
-
                     else
                     {
-                        // Default redirection if the URL does not match any specific pattern
                         return RedirectToAction("Index", "Colleges", new { id = course.CollegeId });
                     }
                 }

@@ -43,24 +43,44 @@
             <thead>
                 <tr>
                     <th>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Name</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Name</a>
                     </th>
                     <th>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["GradeSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Grade</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["GradeSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Grade</a>
                     </th>
                     <th>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Address</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Address</a>
                     </th>
                     <th>
-                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]">Date</a>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Date</a>
                     </th>
-                    <th>@Html.DisplayNameFor(model => model.Items.First().PreferredContactMethod)</th>
+
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PreferredContactMethodSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">ContactMethod</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["IsNAACAccredietSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">NAACVerify</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["RecevieNewsLetterSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">NewsLetter</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["HowManyStudentsSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Students</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PhoneNoSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">PhoneNo</a>
+                    </th>
+
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["BranchesSortParm"]" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-pageSize="@ViewData["PageSize"]" asp-route-pageNumber="@ViewData["CurrentPage"]">Branches</a>
+                    </th>
+                   @*  <th>@Html.DisplayNameFor(model => model.Items.First().PreferredContactMethod)</th>
                     <th>@Html.DisplayNameFor(model => model.Items.First().IsNAACAccrediet)</th>
                     <th>@Html.DisplayNameFor(model => model.Items.First().RecevieNewsLetter)</th>
                     <th>@Html.DisplayNameFor(model => model.Items.First().HowManyStudents)</th>
                     <th>@Html.DisplayNameFor(model => model.Items.First().PhoneNo)</th>
                
-                    <th>@Html.DisplayNameFor(model => model.Items.First().Branches)</th>
+                    <th>@Html.DisplayNameFor(model => model.Items.First().Branches)</th> *@
                     <th></th>
                 
 
@@ -141,7 +161,8 @@
                         <a class="page-link"
                            asp-action="Index"
                            asp-route-pageNumber="@i"
-                           asp-route-pageSize="@ViewData["PageSize"]">
+                           asp-route-pageSize="@ViewData["PageSize"]"
+                           asp-route-searchString="@ViewData["CurrentFilter"]">
                             @i
                         </a>
                     </li>

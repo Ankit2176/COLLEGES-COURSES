@@ -34,9 +34,25 @@ namespace CollegeAndCourses.Controllers
             ViewData["GradeSortParm"] = sortOrder == "grade_asc" ? "grade_desc" : "grade_asc";
             ViewData["AddressSortParm"] = sortOrder == "address_asc" ? "address_desc" : "address_asc";
             ViewData["DateSortParm"] = sortOrder == "date_asc" ? "date_desc" : "date_asc";
+
+            ViewData["PreferredContactMethodSortParm"] = sortOrder == "PreferredContactMethod_asc" ? "PreferredContactMethod_desc" : "PreferredContactMethod_asc";
+
+            ViewData["IsNAACAccredietSortParm"] = sortOrder == "IsNAACAccrediet_asc" ? "IsNAACAccrediet_desc" : "IsNAACAccrediet_asc";
+
+            ViewData["RecevieNewsLetterSortParm"] = sortOrder == "RecevieNewsLetter_asc" ? "RecevieNewsLetter_desc" : "RecevieNewsLetter_asc";
+
+            ViewData["HowManyStudentsSortParm"] = sortOrder == "HowManyStudents_asc" ? "HowManyStudents_desc" : "HowManyStudents_asc";
+
+            ViewData["PhoneNoSortParm"] = sortOrder == "PhoneNo_asc" ? "PhoneNo_desc" : "PhoneNo_asc";
+
+            ViewData["BranchesSortParm"] = sortOrder == "Branches_asc" ? "Branches_desc" : "Branches_asc";
+
+
             ViewData["CurrentFilter"] = searchString;
-            ViewData["CurrentPageSize"] = pageSize;
-            ViewData["PageSize"] = pageSize; // Add pageSize to ViewData to use it in the view
+            ViewData["CurrentPage"] = pageNumber; // Add pageNumber to ViewData to use it in the view
+            ViewData["CurrentPageSize"] = pageSize; // Add pageSize to ViewData to use it in the view
+            ViewData["PageSize"] = pageSize; // Ensure pageSize is included for dropdown selection
+
             var collegesQuery = _context.Colleges.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchString))
@@ -51,23 +67,72 @@ namespace CollegeAndCourses.Controllers
                 case "name_desc":
                     collegesQuery = collegesQuery.OrderByDescending(c => c.Name);
                     break;
+
                 case "grade_asc":
                     collegesQuery = collegesQuery.OrderBy(c => c.Grade);
                     break;
                 case "grade_desc":
                     collegesQuery = collegesQuery.OrderByDescending(c => c.Grade);
                     break;
+
                 case "address_asc":
                     collegesQuery = collegesQuery.OrderBy(c => c.Address);
                     break;
                 case "address_desc":
                     collegesQuery = collegesQuery.OrderByDescending(c => c.Address);
                     break;
+
                 case "date_asc":
                     collegesQuery = collegesQuery.OrderBy(c => c.dateTime);
                     break;
                 case "date_desc":
                     collegesQuery = collegesQuery.OrderByDescending(c => c.dateTime);
+                    break;
+
+                case "PreferredContactMethod_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.PreferredContactMethod);
+                    break;
+                case "PreferredContactMethod_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.PreferredContactMethod);
+                    break;
+
+
+                case "IsNAACAccrediet_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.IsNAACAccrediet);
+                    break;
+                case "IsNAACAccrediet_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.IsNAACAccrediet);
+                    break;
+
+
+
+                case "RecevieNewsLetter_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.RecevieNewsLetter);
+                    break;
+                case "RecevieNewsLetter_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.RecevieNewsLetter);
+                    break;
+
+                case "HowManyStudents_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.HowManyStudents);
+                    break;
+                case "HowManyStudents_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.HowManyStudents);
+                    break;
+
+
+                case "PhoneNo_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.PhoneNo);
+                    break;
+                case "PhoneNo_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.PhoneNo);
+                    break;
+
+                case "Branches_asc":
+                    collegesQuery = collegesQuery.OrderBy(c => c.Branches);
+                    break;
+                case "Branches_desc":
+                    collegesQuery = collegesQuery.OrderByDescending(c => c.Branches);
                     break;
                 default:
                     collegesQuery = collegesQuery.OrderBy(c => c.Name);
@@ -166,7 +231,7 @@ namespace CollegeAndCourses.Controllers
         // POST: Colleges/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+      
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> Create([Bind("CollegeId,Name,Grade,Address,dateTime,PreferredContactMethod,IsNAACAccrediet,RecevieNewsLetter,HowManyStudents,PhoneNo,Branches")] College college)
@@ -179,47 +244,55 @@ namespace CollegeAndCourses.Controllers
                         college.BranchesString = string.Join("; ", college.Branches);
                 }
 
-                string courseJson = TempData["NewCourse"] as string;
+                //string courseJson = TempData["NewCourse"] as string;
 
-                // Deserialize the JSON string back to Course object
+                //// Deserialize the JSON string back to Course object
 
 
-                //if (courseJson == " ")
-                if (courseJson==null || courseJson == " ")
 
+                //if (courseJson==null || courseJson == " ")
+
+                //{
+                //        // Save the student to get the StudentId
+                //        _context.Colleges.Add(college);
+                //    _context.SaveChanges();
+                //    return RedirectToAction(nameof(Index));
+
+
+                //}
+                //else
+                //{
+                //    Course newCourse = JsonConvert.DeserializeObject<Course>(courseJson);
+
+                //    _context.Colleges.Add(college);
+                //    _context.SaveChanges();
+
+                //    newCourse.CollegeId = college.CollegeId;
+
+                //    // Save the course to the database
+                //    _context.Courses.Add(newCourse);
+                //    _context.SaveChanges();
+                //    TempData["NewCourse"] = " ";
+                var coursesJson = TempData["NewCourses"] as string;
+                List<Course> newCourses = string.IsNullOrEmpty(coursesJson) ? new List<Course>() : JsonConvert.DeserializeObject<List<Course>>(coursesJson);
+
+                // Save the college
+                _context.Colleges.Add(college);
+                _context.SaveChanges();
+
+                // Associate each course with the newly created college and save them
+                foreach (var course in newCourses)
                 {
-                        // Save the student to get the StudentId
-                        _context.Colleges.Add(college);
-                    _context.SaveChanges();
-                    return RedirectToAction(nameof(Index));
+                    course.CollegeId = college.CollegeId;
+                    _context.Courses.Add(course);
                 }
-                else
-                {
-                    Course newCourse = JsonConvert.DeserializeObject<Course>(courseJson);
+                _context.SaveChanges();
 
-                    _context.Colleges.Add(college);
-                    _context.SaveChanges();
+                // Clear TempData after saving
+                TempData["NewCourses"] = null;
 
-                    newCourse.CollegeId = college.CollegeId;
-
-                    // Save the course to the database
-                    _context.Courses.Add(newCourse);
-                    _context.SaveChanges();
-                    TempData["NewCourse"] = " ";
-
-                    // Redirect to Index or another appropriate action
-                    return RedirectToAction(nameof(Index));
-                }
-
-
-
-
-
-                //_context.Add(college);
-                //await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
             }
-
             return View(college);
         }
 
@@ -289,8 +362,8 @@ namespace CollegeAndCourses.Controllers
                         throw;
                     }
                 }
-                //return RedirectToAction(nameof(Index));
-                return RedirectToAction("Edit", "Colleges", new { id = college.CollegeId });
+                return RedirectToAction(nameof(Index));
+                //return RedirectToAction("Edit", "Colleges", new { id = college.CollegeId });
             }
                 //var viewModel = new CollegesAndCoursesViewModel
                 //{

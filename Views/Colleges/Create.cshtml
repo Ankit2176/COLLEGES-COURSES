@@ -249,7 +249,7 @@
     </div>
 </div>
 <div class="card-footer d-flex justify-content-end align-items-center">
-    <button type="button" class="btn btn-primary" data-clg-Id=" " id="openCreateModal">
+    <button type="button" class="btn btn-primary" data-id="" id="openCreateModal">
         Add
     </button>
 </div>
@@ -277,19 +277,19 @@
             
             // Show modal when clicking Create New button
             $('#openCreateModal').click(function () {
-                var collegeId = $(this).data('clg-Id');
+                var collegeId = $(this).data('id');
                 // Load the Create.cshtml modal content via AJAX
                 $.ajax({
                     url: '@Url.Action("Create", "Courses")',
                     type: 'GET',
                     data: { collegeId: collegeId },
                     success: function (data) {
-                        debugger;
+  
                         $('#modalPlaceholder').html(data);
                         $('#createModal').modal('show');
                     },
                     error: function () {
-                        alert('Failed to load create student modal.');
+                        alert('Failed to load create modal.');
                     }
                 });
             });
@@ -298,7 +298,7 @@
                 $('#createModal').modal('hide');
             });
 
-          
+            
         });
 
     </script>
